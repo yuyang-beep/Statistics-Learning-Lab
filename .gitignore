@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+.conda/
+
+# Data (raw data not committed — too large)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.feather
+*.h5
+# Exception: small example datasets
+!data/examples/*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
