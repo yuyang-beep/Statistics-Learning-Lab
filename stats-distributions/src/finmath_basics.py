@@ -48,6 +48,24 @@ class FinancialCalculator:
     def pv_continuous(self, C, t):
         return C * math.exp(-self.r * t)
     
+def ear(apr, n):
+        """apr=名义年利率, n=每年复利次数"""
+        return (1 + apr/n)**n - 1
+def fv_annuity(C, r, n):
+    """普通年金终值：每期末存入C，月利率r，共n期"""
+    return C * ((1 + r)**n - 1) / r
+def pv_annuity(C, r, n):
+    return C * (1 - (1 + r)**(-n)) / r
+    
 calc = FinancialCalculator(r=0.05)
 print(calc.fv(10000, 10))
 print(calc.pv(20000, 3))
+
+print(f"月复利 EAR: {ear(0.12, 12):.4f}")
+print(f"日复利 EAR: {ear(0.12, 365):.4f}")
+print(f"连续复利 EAR: {ear(0.12, 1000000):.4f}")
+
+monthly_rate = 0.06 / 12
+print(f"年金终值: {fv_annuity(1000, monthly_rate, 12):.2f}")
+
+print(f"年金现值: {pv_annuity(1000, monthly_rate, 12):.2f}")
