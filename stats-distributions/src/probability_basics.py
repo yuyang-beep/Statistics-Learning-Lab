@@ -17,10 +17,11 @@ class SampleSpace:
     def inclusion_exclusion(self, A, B):
         return self.P(A) + self.P(B) - self.P(self.intersect(A, B))
 
-cards = SampleSpace(range(1, 14))
-A = {1, 2, 3}
-B = {1, 11, 12, 13}
+if __name__ == "__main__":
+    cards = SampleSpace(range(1, 14))
+    A = {1, 2, 3}
+    B = {1, 11, 12, 13}
 
-print(cards.P(A))
-print(cards.P(B))
-print(cards.inclusion_exclusion(A, B))
+    print(cards.P(A))
+    print(cards.P(B))
+    print(cards.inclusion_exclusion(A, B))
